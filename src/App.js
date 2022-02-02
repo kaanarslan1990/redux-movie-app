@@ -14,7 +14,7 @@ function App() {
         <Header></Header>
         <div className="container">        
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path={process.env.PUBLIC_URL + '/'} element={<Home />} />
             <Route path="/movie/:imdbID" element={<MovieDetail />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes> 

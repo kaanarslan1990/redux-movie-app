@@ -8,4 +8,14 @@
     align-items: center;
     color:  $font-primary;
     flex-direction: column;
+    a {
+        color: wheat;
+        
+
+    }
+    a:hover {
+        color: yellowgreen;
+        text-decoration: underline;
+
+    }
 }

@@ -4,10 +4,10 @@ import { APIKey } from "../../common/apis/MovieApiKey";
 
 export const fetchAsyncMovies = createAsyncThunk(
   "movies/fetchAsyncMovies",
-  async (term) => {
-    
+  async () => {
+    const movieText = "Khan";
     const response = await movieApi
-      .get(`?apiKey=${APIKey}&s=${term}&type=movie`
+      .get(`?apiKey=${APIKey}&s=${movieText}&type=movie`
       );
     return response.data;
   }
@@ -15,10 +15,10 @@ export const fetchAsyncMovies = createAsyncThunk(
 
 export const fetchAsyncShows = createAsyncThunk(
   "movies/fetchAsyncShows",
-  async (term) => {
-    
+  async () => {
+    const seriesText = "Khan";
     const response = await movieApi
-      .get(`?apiKey=${APIKey}&s=${term}&type=series`
+      .get(`?apiKey=${APIKey}&s=${seriesText}&type=series`
       );
     return response.data;
   }
@@ -53,13 +53,10 @@ const movieSlice = createSlice({
     [fetchAsyncMovies.pending]: () => {
       console.log("Pending");
     },
-   
     [fetchAsyncMovies.fulfilled]: (state, { payload}) => {
       console.log("Fetched Successfully!");
       return {...state, movies: payload};
     },
-    
-    
     [fetchAsyncMovies.rejected]: (state, { payload}) => {
       console.log("Rejected!");
     },
